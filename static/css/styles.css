@@ -1,0 +1,248 @@
+#background {
+    background-color:lightsteelblue;
+}
+
+#jumbotron-color {
+    background-color: rgb(15, 15, 63);
+}
+
+#jumbotron-title {
+    color: white;
+}
+
+#jumbotron-subtitle {
+    color: white;
+}
+
+
+#nav-item-padding {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#nav-item-format {
+    font-size: 15px;
+}
+
+#ruler-white {
+    background-color: white;
+}
+
+#content-body-background {
+    background-color: white;
+    padding: 10px;
+}
+
+#body-header-background {
+    background-color: rgb(15, 15, 63);
+}
+
+#body-header-text {
+    text-align: center;
+}
+
+#body-header-text-white {
+    color: white;
+    text-align: center;
+}
+
+#candidate-dropdown {
+    width: 100%;
+    font-size: 12px; 
+}
+
+#time-dropdown {
+    width: 100%;
+    font-size: 12px;
+}
+
+#drop-down-text {
+    font-size: 12px;
+}
+
+#overall-sentiment-positive {
+    text-align: center;
+    font-size: 20px;
+    color: green;
+}
+
+#overall-sentiment-negative {
+    text-align: center;
+    font-size: 20px;
+    color: red;
+}
+
+#overall-sentiment-neutral {
+    text-align: center;
+    font-size: 20px;
+    color: blue;
+}
+
+#percent-pos {
+    text-align: center;
+    font-size: 15px;
+    color: green;
+}
+
+#percent-neg {
+    text-align: center;
+    font-size: 15px;
+    color: red;
+}
+
+#general-percent {
+    text-align: center;
+    font-size: 15px;
+    color: blue;
+}
+
+#tweet-count {
+    text-align: center;
+    font-size: 15px;
+}
+
+#model-acc {
+    text-align: center;
+    font-size: 15px;
+}
+
+#positive-tweet-table {
+    width: 100%;
+}
+
+#table-headers {
+    text-align: center;
+    background-color: rgb(15, 15, 63);
+    color: white;
+}
+
+.table-item {
+    padding: 5px
+}
+
+#negative-tweet-table {
+    width: 100%;
+}
+
+#about-text {
+    font-size: 12px;
+    padding: 5px;
+}
+
+#about-text-center {
+    font-size: 14px;
+    padding: 5px;
+    text-align: center;
+}
+
+#bold-positive {
+    color: midnightblue
+}
+
+#bold-negative {
+    color: red
+}
+
+#accordion-header-format {
+    background-color: rgb(15, 15, 63);
+    text-align: center;
+}
+
+#accordion-header-text-format {
+    color: white;
+    font-size: 15px;
+}
+
+#image-sizing {
+    width: 100%;
+    
+}
+
+#small-acc-text {
+    font-size: 12px;
+}
+/* VISUALS PAGE ONLY */
+
+#dashboard-container {
+    width: 100%;
+}
+
+
+/* PREDICTOR PAGE ONLY */
+
+#button-center {
+    text-align: center;
+    margin: 0;
+}
+
+#tweet-output-format {
+    text-align: center;
+    font-size: 20px;
+}
+
+#tweet-output-format-need-text {
+    text-align: center;
+    font-size: 20px;
+    color: red;
+}
+
+#predicted-sent-need-text {
+    text-align: center;
+    font-size: 15px;
+    color: red;
+}
+
+#sentiment-prediction-positive {
+    text-align: center;
+    font-size: 20px;
+    color: green;
+}
+
+#sentiment-prediction-negative {
+    text-align: center;
+    font-size: 20px;
+    color: red;
+}
+
+#sentiment-prediction-neutral {
+    text-align: center;
+    font-size: 20px;
+    color: blue;
+}
+
+#sentiment-prediction-need-text {
+    text-align: center;
+    font-size: 20px;
+    color: red;
+}
+
+#modal-header-format {
+    background-color: rgb(15, 15, 63)
+}
+
+.table-item-center {
+    padding: 5px;
+    text-align: center;
+}
+
+#sentiment-line-chart {
+    max-width: 100%;
+}
+
+#predicted-percent-pos {
+    text-align: center;
+    font-size: 15px;
+    color: green;
+}
+
+#predicted-percent-neg {
+    text-align: center;
+    font-size: 15px;
+    color: red;
+}
+
+#predicted-general-percent {
+    text-align: center;
+    font-size: 15px;
+    color: blue;
+}

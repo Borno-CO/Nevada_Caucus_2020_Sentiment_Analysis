@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <title>Dashboard - Twitter Sentiment Analysis - 2020 Nevada Caucus</title>
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="static/css/styles.css">
+        
+        <!-- Bootstrap Scripts -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    </head>
+
+
+
+    <body id="background">
+        
+
+        <div class="jumbotron jumbotron-fluid" id="jumbotron-color">
+            <div class="container">
+                
+                <h1 class="display-4" id="jumbotron-title">2020 Nevada Caucus Sentiment Analysis</h1>
+                <br/>
+                <br/>
+                <p class="lead" id="jumbotron-subtitle">Compiled by David Born, Sam Ewing, Pranav Jayanth and Llorrvic Valles</p>
+                
+                
+                <!-- Nav bar -->
+                <ul class="nav justify-content-center">
+                    <li class="nav-item" id="nav-item-padding">
+                        <a class="nav-link active" href="index.html" id="nav-item-format">DASHBOARD</a>
+                        <hr id="ruler-white"/>
+                    </li>
+                    <li class="nav-item" id="nav-item-padding">
+                        <a class="nav-link " href="visuals.html" id="nav-item-format">VISUALS</a>
+                        <hr id="ruler-white"/>
+                    </li>
+                    <li class="nav-item" id="nav-item-padding">
+                        <a class="nav-link" href="predictor.html" id="nav-item-format">PREDICTOR</a>
+                        <hr id="ruler-white"/>
+                    </li>
+                </ul>
+            </div>
+        </div> <!--JUMBOTRON END-->
+
+        <br/>
+        <br/>
+
+        
+        <div class="container">
+            
+            
+            <div class="row">
+                <div class="col-md-4">
+                    
+                    <div class="card">
+                        <div class="card-header" id="body-header-background">
+                            <h3 id="body-header-text-white">Candidate</h3>
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <select id="candidate-dropdown">
+                                    <!-- APPEND DROPDOWNS HERE -->
+                                </select> 
+                            </div>
+                            <br/>
+                            <h4 id="body-header-text">Time Period</h4>
+                            <hr/>
+                            <div>
+                                <select id="time-dropdown">
+                                    <option id="drop-down-text">Overall</option>
+                                    <!-- <option id="drop-down-text">Pre-Caucus</option> -->
+                                    
+                                    <option id="drop-down-text">Pre-Debate</option>
+                                    <option id="drop-down-text">Post-Debate</option>
+                                    <option id="drop-down-text">Post-Caucus</option>
+                                </select> 
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <br/>
+                    <br/>
+                    
+                        <div class="card">
+                            <div class="card-header" id="body-header-background">
+                                <h3 id="body-header-text-white">Sentiment Score</h3>
+                            </div>
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4 id="body-header-text">Overall Sentiment</h4>
+                                        <hr/>
+                                        <div id="overall-sent-tag">
+                                            <!-- APPEND TWEET COUNT HERE - TOTAL-COUNT -->
+                                            
+                                        </div>
+                                    </div>
+                                </div> <!--ROW END-->
+
+                                <br/>
+                                
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h4 id="body-header-text">Positive Percent</h4>
+                                        <hr/>
+                                        <div id="positive-percent-tag">
+                                            <!-- APPEND POSITIVE PERCENTAGE HERE - PERCENT-POS -->
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <h4 id="body-header-text">Negative Percent</h4>
+                                        <hr/>
+                                        <div id="negative-percent-tag">
+                                            <!-- APPEND NEGATIVE PERCENTAGE HERE - PERCENT-NEG -->
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <h4 id="body-header-text">Neutral Percent</h4>
+                                        <hr/>
+                                        <div id="general-percent-tag">
+                                            <!-- APPEND NEGATIVE PERCENTAGE HERE - PERCENT-ERR -->
+                                            
+                                        </div>
+                                    </div>
+                                </div> <!--ROW END-->
+                                
+                                <br/>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4 id="body-header-text">Total Tweet Count</h4>
+                                        <hr/>
+                                        <div id="total-count-tag">
+                                            <!-- APPEND TWEET COUNT HERE - TOTAL-COUNT -->
+                                            
+                                        </div>
+                                    </div>
+
+                                </div> <!--ROW END-->
+
+                                <br/>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4 id="body-header-text">Predictive Model Accuracy</h4>
+                                        <hr/>
+                                        <div id="model-accuracy-tag">
+                                            <!-- APPEND TWEET COUNT HERE - TOTAL-COUNT -->
+                                            
+                                        </div>
+                                    </div>
+
+                                </div> <!--ROW END-->
+
+                            </div>
+                          </div>
+                           
+                            
+                    
+                          
+                    </div>
+                
+
+                
+                <div class="col-md-8">
+                    <div id="content-body-background">
+                        <div class="container">
+
+                            <h3 id="body-header-text">Positive Tweets</h3>
+                            <hr/>
+                            
+                            <div class="table-responsive-md">
+                                <table class="table table-striped" id="positive-tweet-table">
+                                    <thead>
+                                        <tr>
+                                            
+                                            <th id="table-headers">DATE</th>
+                                            <th id="table-headers">USERNAME</th>
+                                            <th id="table-headers">TWEET</th>
+                                            
+                                        </tr>
+                                    </thead>
+    
+                                    <tbody id="positive-tweet-tag">
+                                    
+                                    </tbody>
+                                
+                                </table>
+
+                            </div>
+                            
+                            
+                            <br/>
+                                
+                            <h3 id="body-header-text">Negative Tweets</h3>
+                            <hr/>
+                            
+                            <div class="table-responsive-md">
+                                <table class="table table-striped" id="negative-tweet-table">
+                                    <thead>
+                                        <tr>
+                                            
+                                            <th id="table-headers">DATE</th>
+                                            <th id="table-headers">USERNAME</th>
+                                            <th id="table-headers">TWEET</th>
+                                            
+                                        </tr>
+                                    </thead>
+    
+                                    <tbody id="negative-tweet-tag">
+                                        <!-- APPEND NEGATIVE TWEETS HERE -->
+                                        
+                                    </tbody>
+    
+                                    
+                                
+                                </table>
+                                
+                            </div>
+                            
+
+                          </div>
+                            
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+            <br/>
+            <br/>
+            <br/>
+
+            <div class="row">
+                <div class="col-12">
+                    <div id="content-body-background">
+                        <h2 id="body-header-text">About This Project</h2>
+                        <hr/>
+
+                        <p id="about-text">This project utilizes Machine Learning to perform sentiment analysis on tweets relating to candidates of the 2020 Nevada Presidential Caucus. The tweets used in this analysis were collected at different times, in relation to critical events regarding the caucus and the Presidential race as a whole.</p>
+                        <br/>
+                        
+                        <h3 id="body-header-text">How it Works</h3>
+
+
+                        <!-- ACCORDION MENU -->
+                        <div class="accordion" id="about-accordion-menu">
+                            
+                            <div class="card">
+                                <div id="accordion-header-format">
+                                    <div class="card-header" id="headingOne">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="accordion-header-text-format">
+                                                <h4>1 - Data Retrieval</h4>
+                                                <hr id="ruler-white"/>
+                                                <p id="small-acc-text">Sourcing the data and getting started</p>
+                                            </button>
+                                        </h2>
+                                    </div>
+                                </div>
+                                
+                          
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#about-accordion-menu">
+                                    <div class="card-body">
+                                    
+                                        <p id="about-text">As we began our work, we found that sourcing data from Twitter proved to be a bit of a challenge. We hoped to utilize Twitter's official API, but after some investigation, we realized that Twitter's API only retrieves tweets from the last seven days. Because of this, we decided against using Twitter's API and started searching for other solutions.</p>
+                                        
+                                        <p id="about-text">We ultimately chose to use the <a href="https://pypi.org/project/GetOldTweets3/" target="_blank">GetOldTweets3 Python Library</a> to retrieve our data, because of its search versatility and it's ability to retrieve tweets from any time period (although the library offers the ability to filter results by time).</p>
+                                    
+                                        <p id="about-text">In order to gauge how sentiment changes over time, we performed multiple scraping actions before and after important events. We decided on four primary time periods to capture and analyze, including:</p>
+                                        <ul>
+                                            <li id="about-text">Overall</li>
+                                            
+                                            <li id="about-text">Pre-Debate</li>
+                                            <li id="about-text">Post-Debate</li>
+                                            <li id="about-text">Post-Caucus</li>
+                                        </ul>
+                                        
+                                        <img src='time-diagram.png' id="image-sizing">
+                                        
+                                        
+                                    
+                                    </div>
+                                </div>
+                            </div> <!--CARD END-->
+
+
+                            <div class="card">
+                                <div id="accordion-header-format">
+                                    <div class="card-header" id="headingTwo">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="accordion-header-text-format">
+                                                <h4>2 - Machine Learning</h4>
+                                                <hr id="ruler-white"/>
+                                                <p id="small-acc-text">Analyzing and labeling data based on sentiment</p>
+                                            </button>
+                                        </h2>
+                                    </div>
+                                </div>
+                                
+
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#about-accordion-menu">
+                                    <div class="card-body">
+                                        <p id="about-text">For this project, we decided to use Machine Learning concepts to analyze sentiment on Twitter. Our first challenge was to decide how to process the tweets. To accomplish this, we chose to use Natural Language Processing (NLP) in order to break down each tweet to analyze it.</p>
+                                        
+                                        <p id="about-text">We decided to use the Natural Language Tool-kit, or NLTK, which is purpose-built NLP library for Python. The cleanup process for a tweet before creating an ML model may best be explained by using some examples – imagine the following tweet:</p>
+                                        
+                                        <li id="about-text">“It is a warm and #sunny here in Denver, Colorado! RT https//www.denverweather.com ”</li>
+                                        
+                                        <p id="about-text">The first thing we have to do is tokenize the tweet – this means that we break down the sentence into individual words:</p>
+                                        
+                                        <li id="about-text">[it],[is].[a],[warm],[and][#sunny][day]….and so on.</li>
+                                        
+                                        <p id="about-text">The next step is to remove things like hashtags and other items like retweets and hyperlinks to only get the English words. </p>
+                                        
+                                        <p id="about-text">Finally,  we create a bag of words where each instance of the word is given an equivalent weight. The concept behind bag of words is that we take each word, strip it of context (ie: it’s a grab-bag) and then we characterize/weight it. </p>
+                                    
+                                        <p id="about-text">After creating our bag of words, we can then create a testing / training data set. However, in order to create our training sample, we had to manually label each tweet as positive or negative (this involved reading individual tweets and categorizing them according to what we perceived the overall sentiment of the tweet was).</p>
+ 
+                                        <p id="about-text">Finally, we used a Naïve Bayes classifier to classify the text as positive or negative, based on each word's Bag of Words values. We then ran the entire file with the predictor to get all of our results.</p>
+                                    
+                                    </div>
+                                </div>
+                            </div> <!--CARD END-->
+
+                            <div class="card">
+                                <div id="accordion-header-format">
+                                    <div class="card-header" id="headingThree">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" id="accordion-header-text-format">
+                                                <h4>3 - Data Cleaning</h4>
+                                                <hr id="ruler-white"/>
+                                                <p id="small-acc-text">Cleansing and reformatting data for easier use</p>
+                                            </button>
+                                        </h2>
+                                    </div>
+                                </div>
+                                
+
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#about-accordion-menu">
+                                    <div class="card-body">
+                            
+                                        <p id="about-text">The tweet scraping method produced four separate Comma-Separated Value (.csv) files with overlapping time frames and, therefore, duplicated tweets. The cleaning deleted duplicate tweets from the same username, timestamp, and to (recipient). Tweets with blank text were deleted (less than 200 records). The timestamp column was re-formatted to:  yyyy-mm-dd hh:mm:ss. The hours are in 24-hour time (AKA military time). Quote marks were removed, so as not to interfere with JavaScript coding controlling front-end display.</p>
+                                        
+                                        <p id="about-text">Over the sampled time frame (February 9-25, 2020), a frequency count by username was used to identify "tweeter types":</p> 
+                                        
+                                        <ul>
+                                            <li id="about-text">Heavy (over 25 tweets)</li>
+                                            
+                                            <li id="about-text">Moderate (10-25 tweets)</li>
+                                            
+                                            <li id="about-text">Light (less than 10 tweets)</li>
+                                        
+                                        </ul>
+                                    
+                                        <p id="about-text">Suspected "bots" and "trolls" were further split out from the heavy tweeter group by manual inspection of their tweets.</p> 
+                                        
+                                        <li id="about-text">"Bots" are typically tweeters sending hundreds of tweets with the same text.</li>
+                                        
+                                        <li id="about-text">"Trolls" are characterized by tweeters that send hundreds of tweets with different text, but the tweets are largely malicious in nature.</li> 
+                                    </div>
+                                </div>
+                            </div> <!--CARD END-->
+
+                            <div class="card">
+                                <div id="accordion-header-format">
+                                    <div class="card-header" id="headingFour">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" id="accordion-header-text-format">
+                                                <h4>4 - PostgreSQL Database</h4>
+                                                <hr id="ruler-white"/>
+                                                <p id="small-acc-text">Storing and organizing our data</p>
+                                            </button>
+                                        </h2>
+                                    </div>
+                                </div>
+                                
+
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#about-accordion-menu">
+                                    <div class="card-body">
+                                        
+                                        <p id="about-text">After cleaning, the four source files containing tweet scrapes were manually combined into one Comma-Separated Value (.csv) file before loading into Postgres. The source file was loaded unchanged into a single Postgres table and then distinct records were inserted into a second table to ensure that there were no duplicates.</p> 
+                                        
+                                        <p id="about-text">A series of process queries were then executed to stage the data for the API and dashboard reporting:</p>
+                                        
+                                        <ul>
+                                            
+                                            <li id="about-text">A date field was created in yyyy-mm-dd format.</li>
+                                            
+                                            <li id="about-text">
+                                                A time_period field was created to assign the tweets by chronology to important caucus milestones as follows (also see diagram in the Data Retrieval section).
+                                                <ul>
+                                                    <li>Pre-Debate:	tweets from 2020-02-09 23:33:00 to before 2020-02-19 18:00:00</li>
+                                                    <li>Post-Debate:	tweets from 2020-02-19 18:00:00 to before 2020-02-22 16:00:00</li>
+                                                    <li>Post-Caucus:	tweets from 2020-02-22 16:00:00 to 2020-02-25 01:23:00</li>
+                                                </ul>
+                                            </li>
+
+                                            <li id="about-text">A random integer between 1 and 20 was assigned to each record to facilitate easy sampling.
+                                                <ul>
+                                                    <li>Because Heroku (the service hosting our API) has a 10,000 record limit, we anticipated needing to use some form of sampling to produce tweet text examples for the API.  Each integer represents roughly 5% of the data.</li>
+                                                    <li>(<strong>Note:</strong> The dashboard reporting our visualizations on the Visuals page uses 100% of the data without sampling, as it is hosted on Tableau Public.)</li>
+                                                </ul>
+                                            </li>
+                                            
+                                            <li id="about-text">Queries utilizing Postgres string wildcards (e.g., %bernie%) were utilized to search tweet text for the occurrence of candidate names. For the search, the text was transformed to lower case, thereby eliminating variations in capitalization. Where a candidate's name was detected, a separate flag field for that candidate was marked.</li>
+                                            
+                                            <li id="about-text">A final staging table was loaded with tweet records that were flagged for each candidate. Be aware that a single tweet can have multiple candidates mentioned. In that case, tweet records were loaded for each candidate mentioned, thereby intentionally creating duplicate tweets in the final staging table. This enables dashboard reporting of "tweet mentions" by candidate. If a candidate is mentioned more than once in a single tweet, that would count as one (1) tweet mention for that candidate. But if two or more candidates are mentioned in a single tweet, then that would count as one mention for each of those candidates.</li>
+                                        </ul>
+	
+                                        <p id="about-text">After staging, separate tables were populated by positive and negative tweet samples for final exporting for the API and Tableau dashboard. In addition, a summary table was created using a GROUP BY query that stored a count of candidate, sentiment, time period, date, and tweeter type. The summary table drives all the visuals on the Tableau dashboard except for the tweet samples.</p>
+                                        
+                                        <p id="about-text">Possible values for the summary table dimensions are:</p>
+                                        
+                                        <ul>
+                                            <li id="about-text">Candidate:
+                                                <ul>
+                                                    <li>Biden</li>
+                                                    <li>Bloomberg</li>
+                                                    <li>Buttigieg</li>
+                                                    <li>Gabbard</li>
+                                                    <li>Klobuchar</li>
+                                                    <li>Sanders</li>
+                                                    <li>Steyer</li>
+                                                    <li>Trump</li>
+                                                    <li>Warren</li>
+                                                    <li>Yang</li>
+
+                                                </ul>
+                                            </li>
+
+                                            <li id="about-text">Sentiment:
+                                                <ul>
+                                                    <li>Negative</li>
+                                                    <li>Positive</li>
+                                                </ul>
+                                            </li>
+
+                                            <li id="about-text">Time Period:
+                                                <ul>
+                                                    <li>Pre-Debate</li>
+                                                    <li>Post-Debate</li>
+                                                    <li>Post-Caucus</li>
+                                                </ul>
+                                            </li>
+
+                                            <li id="about-text">Date:
+                                                <ul>
+                                                    <li>2020-02-09 to 2020-02-25</li>
+                                                </ul>
+                                            </li>
+
+                                            <li id="about-text">Tweeter Type:
+                                                <ul>
+                                                    <li>Bot</li>
+                                                    <li>Heavy</li>
+                                                    <li>Light</li>
+                                                    <li>Moderate</li>
+                                                    <li>Troll</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div> <!--CARD END-->
+
+                            <div class="card">
+                                <div id="accordion-header-format">
+                                    <div class="card-header" id="headingFive">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" id="accordion-header-text-format">
+                                                <h4>5 - Flask API</h4>
+                                                <hr id="ruler-white"/>
+                                                <p id="small-acc-text">Querying the data for front-end deployment</p>
+                                            </button>
+                                        </h2>
+                                    </div>
+                                </div>
+                                
+
+                                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#about-accordion-menu">
+                                    <div class="card-body">
+                                        <p id="about-text">With our data stored in a PostgreSQL Database, the next step was to develop an Application Program Interface (API) that could retrieve our data from the database for use on the front-end, as well as a platform to provide tools necessary to our website's functionality. To create this API, we utilized Python's Flask library.</p>
+                                        
+                                        <p id="about-text">The resulting Flask application drives two main APIs:</p>
+                                        
+                                        <ul>
+                                            <li id="about-text">Candidate API
+                                                <ul>
+                                                    <li>This API is automatically called by our Dashboard page each time it loads.</li>
+                                                </ul>
+                                            </li>
+
+                                            <li id="about-text">Tweet Predictor API
+                                                <ul>
+                                                    <li>This API is only called upon receiving an input value entered into the text field on our Predictor page. As long there is text in the text field, the API will be called when the "Predict Sentiment" button is clicked. If there is no input, the API will not be called.</li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                        
+
+                                        <p id="about-text">The Candidate API was created using data from our PostgreSQL database. It retrieves the data and then converts it into a JavaScript Object Notation (JSON) format using the Python Pandas library.</p>
+
+                                        <p id="about-text">The Predictor API was created using a "pickled" (serialized) version of the initial Machine Learning model. When provided an input, the API will load the model and pass the input string into it. After performing it's analysis, the model will output a series of probability values about the sentiment of the input string. These values are returned to the website for display.</p>
+                                    
+                                        <p id="about-text">The Python Flask app that creates our API is hosted using Heroku. Because Heroku has a 10,000 record limit for data, we utilize a set of random numbers to select manageable increments of our data. For more information about how this selection process occurs, please refer to the previous section (Part 4 - PostgreSQL Database).</p>
+                                    </div>
+                                </div>
+                            </div> <!--CARD END-->
+
+                            <div class="card">
+                                <div id="accordion-header-format">
+                                    <div class="card-header" id="headingSix">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix" id="accordion-header-text-format">
+                                                <h4>6 - Displaying Our Data</h4>
+                                                <hr id="ruler-white"/>
+                                                <p id="small-acc-text">Bringing it all together</p>
+                                            </button>
+                                        </h2>
+                                    </div>
+                                </div>
+                                
+
+                                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#about-accordion-menu">
+                                    <div class="card-body">
+
+                                        <h4>Dashboard</h4>
+                                        <hr/>
+
+                                        <p id="about-text">As the webpage loads, a call is made to the API that was built in the previous step. Once the data is retrieved from the API, it is organized into a format that can easily be applied to the various dynamic website elements.</p>
+                                        <p id="about-text">The d3.js JavaScript library is utilized to select labeled tags throughout the website. These selections are used as containers for our data to be dropped into. When the website is updated (either through initialization when the site is first loaded, or when a new selection is made from either of the two drop-down menus), each of these selections are called and perform the following actions:</p>
+                                        <ol>
+                                            <li id="about-text">Clear any value that's already present by removing it's HTML element</li>
+                                            <li id="about-text">
+                                                Append a new HTML element to replace the old one
+                                                <ul>
+                                                    <li>Apply an HTML ID to the new element in order to apply the correct styling</li>
+                                                </ul>
+                                            </li>
+                                            <li id="about-text">Insert the data value in the new element created</li>
+                                        </ol>
+                                        <p id="about-text">This process is applied to every piece of dynamic content on the webpage - none of the elements pertaining to displaying our data is permanently-coded into our site.</p>
+
+                                        <br/>
+
+                                        <h4>Visuals</h4>
+                                        <hr/>
+
+                                        <p id="about-text">The visuals displayed on this webpage are created using a Tableau dashboard that is embedded into the page. Typically associated with Business Intelligence (BI), Tableau is a powerful visualization tool that enables the creation of complex, fully-interactive visualizations in a user-friendly manner. The only JavaScript being utilized on this page controls the dimensions of the dashboard on the page.</p>
+                                        <p id="about-text">Users can gain deeper insights into the data by clicking on each chart (particularly the bubble chart and the stacked-bar chart, which display sentiment values over time and a set of tweets respectively). A drop-down on the Tableau dashboard also allows users to filter content on time-point, similar to the Dashboard page.</p>
+                                    
+                                        <br/>
+                                        
+                                        <h4>Predictor</h4>
+                                        <hr/>
+
+                                        <p id="about-text">The Predictor page allows users to test our model for themselves. The page features an input form where users can either copy a tweet they see on Twitter, or write their own "tweet" mockup. Upon submitting the value of this form, the website calls our API requesting data for the input value. The API call activates our model, which analyzes the value entered into this field. When the model completes it's analysis, it returns a sentiment prediction of whether the "tweet" is a positive or negative one. A table displaying the sentiment of the most heavily-weighted words discovered by our model is also dynamically generated, along with a line graph that shows how the sentiment value of these words compares to one another.</p>
+                                        <p id="about-text">Like the Dashboard page, the page is designed to be dynamically populated with data upon receiving a new input using the d3.js JavaScript library. In regards to how the data is displayed, there are no hard-coded elements on this page.</p>
+                                    </div>
+                                </div>
+                            </div> <!--CARD END-->
+
+                        </div> <!--ACCORDION ENDS-->
+                    </div>
+                    
+
+
+                    
+                    
+                </div>
+
+            </div> <!--ROW END-->
+                
+        </div> <!--CONTAINER END-->
+
+        <br/>
+        <br/>
+        <br/>
+            
+        
+        
+
+
+
+
+
+    </body>
+
+    <!-- D3 JavaScript -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="static/js/app.js"></script>
+
+
+</html>

@@ -1,0 +1,25 @@
+Index,Name,Negative Probability,Positive Probability,Results,Scenario
+0,Biden,0.503923768,0.472072342,neg,pre_debate
+1,Klobuchar,0.354768899,0.612969276,pos,pre_debate
+2,Buttigieg,0.450904605,0.451041935,pos,pre_debate
+3,Bloomberg,0.448200321,0.494320092,pos,pre_debate
+4,Sanders,0.145190274,0.742770699,pos,pre_debate
+5,Warren,0.302261169,0.627964394,pos,pre_debate
+0,Biden,0.41439243,0.569695882,pos,post_debate
+1,Klobuchar,0.179325402,0.806136528,pos,post_debate
+2,Buttigieg,0.371529179,0.5941046,pos,post_debate
+3,Bloomberg,0.532648825,0.409646921,neg,post_debate
+4,Sanders,0.208461529,0.754755766,pos,post_debate
+5,Warren,0.238439384,0.731907703,pos,post_debate
+0,Biden,0.469169246,0.523805649,pos,pre_election
+1,Klobuchar,0.243700681,0.753498451,pos,pre_election
+2,Buttigieg,0.281871338,0.68761071,pos,pre_election
+3,Bloomberg,0.494135343,0.439926523,neg,pre_election
+4,Sanders,0.191363646,0.769609775,pos,pre_election
+5,Warren,0.248793638,0.727007143,pos,pre_election
+0,Biden,0.311726616,0.683738014,pos,post_election
+1,Klobuchar,0.240872517,0.756695067,pos,post_election
+2,Buttigieg,0.500284692,0.487628753,neg,post_election
+3,Bloomberg,0.411760242,0.586061705,pos,post_election
+4,Sanders,0.165825047,0.798573958,pos,post_election
+5,Warren,0.25809137,0.73173566,pos,post_election

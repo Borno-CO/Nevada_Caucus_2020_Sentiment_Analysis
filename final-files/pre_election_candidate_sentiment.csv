@@ -1,0 +1,7 @@
+,Name,Negative Probability,Positive Probability,Results,scenario
+0,Biden,0.4691692463052142,0.5238056494998035,pos,pre_election
+1,Klobuchar,0.24370068108082624,0.7534984506327976,pos,pre_election
+2,Buttigieg,0.28187133833832034,0.6876107098892525,pos,pre_election
+3,Bloomberg,0.4941353434503351,0.4399265232843135,neg,pre_election
+4,Sanders,0.191363645950889,0.7696097754312248,pos,pre_election
+5,Warren,0.24879363808413713,0.7270071427983105,pos,pre_election

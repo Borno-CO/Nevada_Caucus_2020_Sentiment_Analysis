@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <title>Predictor - Twitter Sentiment Analysis - 2020 Nevada Caucus</title>
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="static/css/styles.css">
+        
+        <!-- Bootstrap Scripts -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+        
+    </head>
+
+
+
+    <body id="background">
+        
+
+        <div class="jumbotron jumbotron-fluid" id="jumbotron-color">
+            <div class="container">
+                
+                <h1 class="display-4" id="jumbotron-title">2020 Nevada Caucus Sentiment Analysis</h1>
+                <br/>
+                <br/>
+                <p class="lead" id="jumbotron-subtitle">Compiled by David Born, Sam Ewing, Pranav Jayanth and Llorrvic Valles</p>
+                
+
+                <!-- Nav bar -->
+                <ul class="nav justify-content-center">
+                    <li class="nav-item" id="nav-item-padding">
+                        <a class="nav-link" href="index.html" id="nav-item-format">DASHBOARD</a>
+                        <hr id="ruler-white"/>
+                    </li>
+                    <li class="nav-item" id="nav-item-padding">
+                        <a class="nav-link active" href="visuals.html" id="nav-item-format">VISUALS</a>
+                        <hr id="ruler-white"/>
+                    </li>
+                    <li class="nav-item" id="nav-item-padding">
+                        <a class="nav-link" href="#" id="nav-item-format">PREDICTOR</a>
+                        <hr id="ruler-white"/>
+                    </li>
+                </ul>
+                  
+                  
+            </div>
+        </div> <!--JUMBOTRON END-->
+
+        <br/>
+        <br/>
+
+        
+        <div class="container">
+            
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="content-body-background">
+                        <h2 id="body-header-text">Sentiment Predictor</h2>
+                        <hr/>
+                    
+                        <div>
+                            <form autocomplete="off"> 
+                                <div class="form-group">
+                                    <label for="text-form">Enter text below to test our model.</label>
+                                    
+                                    <input class="form-control form-control-lg" id="text-form-input" name="text-form" type="text" placeholder="Insert a tweet or write your own here.">
+                                </div>
+                                <div id="button-center">
+                                    <button id="tweet-submit-button" type="button" class="btn btn-primary" style="font-size: 12px;">Predict Sentiment</button>
+                                </div>
+                                
+                            </form>
+                      
+                            
+                        </div>
+                                        
+                          
+                    
+                    </div>
+                    
+                    
+                </div>
+
+            </div> <!--ROW END-->
+
+            <br/>
+            <br/>
+
+            <div id="content-body-background">
+                <div class="row">
+                    <div class="col-md-12">
+                    
+                        <div id="text-input-output-field">
+                            <!-- RETURN INPUT HERE -->
+                        </div>
+
+                        <br/>
+
+                        <h3 id="body-header-text">Sentiment Prediction</h3>
+                        <hr/>
+                        <div id="sentiment-prediction-output">
+                            <!-- APPEND SENTIMENT PREDICTION HERE -->
+                        </div>
+                    </div>
+
+                    
+                </div> <!--ROW END-->
+
+                <br/>
+                                
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4 id="body-header-text">Positive Percent</h4>
+                        <hr/>
+                        <div id="predicted-positive-percent-tag">
+                            <!-- APPEND POSITIVE PERCENTAGE HERE - PERCENT-POS -->
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h4 id="body-header-text">Negative Percent</h4>
+                        <hr/>
+                        <div id="predicted-negative-percent-tag">
+                            <!-- APPEND NEGATIVE PERCENTAGE HERE - PERCENT-NEG -->
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h4 id="body-header-text">Neutral Percent</h4>
+                        <hr/>
+                        <div id="predicted-general-percent-tag">
+                            <!-- APPEND NEGATIVE PERCENTAGE HERE - PERCENT-ERR -->
+                            
+                        </div>
+                    </div>
+                </div> <!--ROW END-->
+
+                <br/>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="button-center">
+                            <!-- BUTTON ACTIVATES MODAL BELOW -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalLong" style="font-size: 12px;">
+                                Why did I get this result?
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <!-- Modal (ACTIVATED BY CLICKING THE "WHY DID I GET THIS RESULT?" BUTTON)-->
+        <div class="modal fade in" id="ModalLong" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h3 class="modal-title" id="ModalLongTitle">Why did I get this result?</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+            
+                    <div class="modal-body">
+                        <p id="about-text">When a submission is made to our Machine Learning model, the model activates and utilizes the Natural Language Tool-Kit (NLTK) to analyze each word. When performing this analysis, some general words (such as "I," "you," "the," "do," "it" etc.) are removed from the analysis (but <i>not from the input</i>). Each word is then applied to a "Bag of Words," which measures how many times that word appears in a positive or a negative context. The input is then applied to a Naive-Bayes Classifier, which classifies each word as positive or negative based on its bag of words values. Words with a higher count in the positive bag of words have a higher probability of being labeled as positive, and vice-versa.</p> 
+                        
+                        <p id="about-text">However, before the model could be applied to our data, it had to be "trained" to recognize positive or negative data. This was done by manually labeling a portion of our data, which required us to read individual tweets and determine whether they were positive or negative, as well as what candidates the tweets were discussing or mentioning.</p>
+                        
+                        <p id="about-text">As the model ran over the dataset in it's entirety, it applied this same analysis and weighted the words it encountered automatically and categorized them as the model deemed appropriate for that weight value.</p>
+                        
+                        <p id="about-text">An interesting caveat to this approach is that words or phrases that we associate with a certain emotion don’t necessarily have to reflect that emotion in the model. As an example, if several tweets are using the word “sick” (as in “Bernie Sanders is sick!”), "sick" becomes a positively-associated word. The probability of a word being categorized one way or another ultimately comes down to our original training of the model using "positive" and "negative" to identify whole tweets.</p>
+                        
+                        <p id="about-text">As a summary, our model was trained by reading and labeling <i>entire tweets</i>, not by pre-loading words into the algorythm with pre-defined weight values. Additionally, the sentiment label of a given word is based on it's <i>probability</i> of being positive or negative, based on the number of times that word was used in either context.</p>
+                        
+                        <p id="about-text">For an in-depth explanation of how the Naive-Bayes Classifier works, <a href="https://medium.com/@theflyingmantis/text-classification-in-nlp-naive-bayes-a606bf419f8c" target="_blank">check out this article on Medium.com</a>.</p>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+                
+            <br/>
+            <br/>
+            
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div id="content-body-background">
+                        <h3 id="body-header-text">Model Word Weight</h3>
+                        <hr/>
+
+                        <div class="table-responsive-md">
+                            <table class="table table-striped" id="word-weight-table">
+                                <thead>
+                                    <tr>
+                                        
+                                        <th id="table-headers">WORD</th>
+                                        <th id="table-headers">SENTIMENT</th>
+                                        <th id="table-headers" colspan="2">WEIGHTING RATIO</th>
+                                        
+                                    </tr>
+                                </thead>
+
+                                <tbody id="word-weight-tag">
+                                
+                                </tbody>
+                            
+                            </table>
+
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+                
+                <div class="col-md-6">
+                    <div id="content-body-background">
+                    
+                        
+                        <div id="sentiment-line-chart"></div>
+                        
+                        
+
+                    </div>
+
+                    <br/>
+                    <br/>
+
+                    <div class="card">
+                        <div class="card-header" id="body-header-background">
+                            <h3 id="body-header-text-white">How the Model Predicts Sentiment</h3>
+                        </div>
+                        <div class="card-body">
+                            
+                            <p id="about-text">Our Machine Learning model was trained to recognize positive or negative sentiment on a dataset of approximately 14,000 tweets regarding the 2020 Nevada Presidential Caucus. Each word in a tweet is analyzed by our model using the Natural Language Tool-Kit (NLTK), which assigns each word a positive or a negative weighting.</p>
+                            
+                            <p id="about-text">The Model Word Weight Table displays the words that our model recognized as bearing the greatest weighting, along with it's predicted sentiment. The Model Word Sentiment Value line graph above visualizes the change of the sentiment values for the same set of words.</p>
+                            
+                            <p id="about-text">Because our model was trained using tweets about the 2020 Nevada Presidential Caucus, it is important to note that <strong>our predictor functionality will be more accurate when given an input discussing the 2020 Presidential race</strong>. Inputs provided to the model that do not pertain to the 2020 Presidential Race or the 2020 Nevada Caucus will still be analyzed by the model, although the predictions based on a broader input cannot be guaranteed to have the same level of accuracy.</p>
+                        
+                            <p id="about-text-center">For more information about how our Machine Learning works, check out the Machine Learning section on our <a href="index.html">dashboard</a>.</p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div> <!--ROW END-->
+
+            
+
+
+            
+                
+        </div> <!--CONTAINER END-->
+
+        <br/>
+        <br/>
+        <br/>
+            
+        
+        
+
+
+
+
+
+    </body>
+
+    <!-- D3 JavaScript -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <!-- Plotly JavaScript -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="static/js/test-data/informative-features-v2.js"></script>
+    <script type="text/javascript" src="static/js/tweet-predictor.js"></script>
+
+</html>

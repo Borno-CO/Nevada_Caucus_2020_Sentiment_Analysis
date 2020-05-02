@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <title>Visuals - Twitter Sentiment Analysis - 2020 Nevada Caucus</title>
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="static/css/styles.css">
+        
+        <!-- Bootstrap Scripts -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    </head>
+
+
+
+    <body id="background">
+        
+
+        <div class="jumbotron jumbotron-fluid" id="jumbotron-color">
+            <div class="container">
+                
+                <h1 class="display-4" id="jumbotron-title">2020 Nevada Caucus Sentiment Analysis</h1>
+                <br/>
+                <br/>
+                <p class="lead" id="jumbotron-subtitle">Compiled by David Born, Sam Ewing, Pranav Jayanth and Llorrvic Valles</p>
+                
+
+                <!-- Nav bar -->
+                <ul class="nav justify-content-center">
+                    <li class="nav-item" id="nav-item-padding">
+                        <a class="nav-link" href="index.html" id="nav-item-format">DASHBOARD</a>
+                        <hr id="ruler-white"/>
+                    </li>
+                    <li class="nav-item" id="nav-item-padding">
+                        <a class="nav-link active" href="visuals.html" id="nav-item-format">VISUALS</a>
+                        <hr id="ruler-white"/>
+                    </li>
+                    <li class="nav-item" id="nav-item-padding">
+                        <a class="nav-link" href="predictor.html" id="nav-item-format">PREDICTOR</a>
+                        <hr id="ruler-white"/>
+                    </li>
+                </ul>
+                  
+                  
+            </div>
+        </div> <!--JUMBOTRON END-->
+
+        <br/>
+        <br/>
+
+        
+        <div class="container">
+            
+
+            <div class="row">
+                <div class="col-12">
+                    <div id="content-body-background">
+                        <h2 id="body-header-text">Visual Analysis</h2>
+                        <hr/>
+                    
+                        <!-- Tableau Dashboard -->
+                        <div class='tableauPlaceholder' id='viz1582749600472' style='position: relative'>
+                            <noscript>
+                              <a href='#'>
+                                <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;Dashboard-DemocratCaucusTweets&#47;Dashboard1&#47;1_rss.png' style='border: none' />
+                              </a>
+                            </noscript>
+                            <object class='tableauViz'  style='display:none;'>
+                              <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                              <param name='embed_code_version' value='3' /> 
+                              <param name='site_root' value='' />
+                              <param name='name' value='Dashboard-DemocratCaucusTweets&#47;Dashboard1' />
+                              <param name='tabs' value='no' />
+                              <param name='toolbar' value='yes' />
+                              <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;Dashboard-DemocratCaucusTweets&#47;Dashboard1&#47;1.png' /> 
+                              <param name='animate_transition' value='yes' />
+                              <param name='display_static_image' value='yes' />
+                              <param name='display_spinner' value='yes' />
+                              <param name='display_overlay' value='yes' />
+                              <param name='display_count' value='yes' />
+                              <param name='filter' value='publish=yes' />
+                            </object>
+                          </div>
+                        
+                        <br/>
+
+                        <p id="about-text-center">Click on a bubble in the Buzz chart to display the Momentum (net sentiment) for that candidate.</p>
+                        <p id="about-text-center">Click on a <strong id="bold-positive">positive</strong> or <strong id="bold-negative">negative</strong> bar in the Sentiment Breakdown graph to display positive or negative tweets about that candidate. Use the drop-down menu to select a time period.</p>  
+                    
+                    </div>
+                    
+                    
+                </div>
+
+            </div> <!--ROW END-->
+                
+        </div> <!--CONTAINER END-->
+
+        <br/>
+        <br/>
+        <br/>
+
+
+
+
+
+    </body>
+
+    <script type="text/javascript" src="static/js/visuals-tableau-initialization.js"></script>
+
+</html>

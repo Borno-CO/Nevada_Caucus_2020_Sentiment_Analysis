@@ -1,0 +1,13 @@
+certifi==2019.11.28
+Flask==1.1.1
+gunicorn==20.0.4
+itsdangerous==1.1.0
+Jinja2==2.10.3
+MarkupSafe==1.1.1
+Werkzeug==0.16.0
+psycopg2==2.7.6.1
+Flask-Cors==3.0.8
+nltk==3.4.5
+pickleshare==0.7.5
+json5==0.9.1
+pandas==0.24.2
