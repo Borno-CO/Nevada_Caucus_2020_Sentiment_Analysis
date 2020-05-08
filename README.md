@@ -16,6 +16,10 @@ The analysis provides visuals to compare the sentiment for each candidate across
 
 Click on this link https://borno-co.github.io/Nevada_Caucus_2020_Sentiment_Analysis/ 
 
+<p align="center">
+  <img src="Images/Nevada_Caucus_Visuals.png" width="350" title="hover text">
+</p>
+
 ![visuals](Images/Nevada_Caucus_Visuals.png)
 
 Our deployment is comprised of three web pages:
