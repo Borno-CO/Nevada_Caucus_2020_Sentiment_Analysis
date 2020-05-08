@@ -18,6 +18,8 @@ Click on this link https://borno-co.github.io/Nevada_Caucus_2020_Sentiment_Analy
 
 Our deployment is comprised of three web pages:
 
+![header image](https://raw.github.com/Borno-CO/Nevada_Caucus_2020_Sentiment_Analysis/master/Images/Nevada_Caucus_Visuals.png)
+
 ### Dashboard (home page)
 This page displays the % positive, negative, and neutral for a candidate and time period selected from a drop down box. Five samples each of postive and negative tweets are shown based on the dropdown selection.
 
