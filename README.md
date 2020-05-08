@@ -18,13 +18,13 @@ Click on this link https://borno-co.github.io/Nevada_Caucus_2020_Sentiment_Analy
 
 Our deployment is comprised of three web pages:
 
+![visuals](/Images/caucus.png)
+
 ### Dashboard (home page)
 This page displays the % positive, negative, and neutral for a candidate and time period selected from a drop down box. Five samples each of postive and negative tweets are shown based on the dropdown selection.
 
 ### Visuals (page 2)
 This page displays interactive chart visuals enbabling the user to explore tweet-based sentiment by candidate over three time periods before and after the caucus. Clicking on a "Buzz" bubble produces a bar chart (labeled "Momentum") showing how net sentiment changes Pre- and Post- Debate/Caucus for candidate selected. Clicking on the "Sentiment Breakdown" horizontal bar chart generates tweets to scroll through and explore for the selected candidate and sentiment. All data can be filtered by "Tweeter Type" and "Time Period".
-
-![visuals](/Images/Nevada_Caucus_Visuals.png)
 
 ### Predictor (page 3)
 This page allows users to test our model by inputting a tweet they see on Twitter in a form, or by writing their own "tweet" mockup. Upon submitting the value of this form, the API call activates our model, which returns a sentiment prediction of whether the "tweet" is positive or negative.
