@@ -16,6 +16,8 @@ The analysis provides visuals to compare the sentiment for each candidate across
 
 Click on this link https://borno-co.github.io/Nevada_Caucus_2020_Sentiment_Analysis/ 
 
+[visuals](Images/Nevada_Caucus_Visuals.png)
+
 Our deployment is comprised of three web pages:
 
 ### Dashboard (home page)
@@ -90,7 +92,7 @@ A series of process queries were then executed to stage the data for the API and
 * A final staging table was loaded with tweet records that were flagged for each candidate. Be aware that a single tweet can have multiple candidates mentioned. In that case, tweet records were loaded for each candidate mentioned, thereby intentionally creating duplicate tweets in the final staging table. This enables dashboard reporting of "tweet mentions" by candidate. If a candidate is mentioned more than once in a single tweet, that would count as one (1) tweet mention for that candidate. But if two or more candidates are mentioned in a single tweet, then that would count as one mention for each of those candidates.
 After staging, separate tables were populated by positive and negative tweet samples for final exporting for the API and Tableau dashboard. In addition, a summary table was created using a GROUP BY query that stored a count of candidate, sentiment, time period, date, and tweeter type. The summary table drives all the visuals on the Tableau dashboard except for the tweet samples.
 
-5) Flask API
+### 5) Flask API
 With our data stored in a PostgreSQL Database, the next step was to develop an Application Program Interface (API) that could retrieve our data from the database for use on the front-end, as well as a platform to provide tools necessary to our website's functionality. To create this API, we utilized Python's Flask library.
 
 The resulting Flask application drives two main APIs:
@@ -105,7 +107,7 @@ The Predictor API was created using a "pickled" (serialized) version of the init
 
 The Python Flask app that creates our API is hosted using Heroku. Because Heroku has a 10,000 record limit for data, we utilize a set of random numbers to select manageable increments of our data. For more information about how this selection process occurs, please refer to the previous section (Part 4 - PostgreSQL Database).
 
-6) Displaying Our Data
+### 6) Displaying Our Data
 **Dashboard**
 As the webpage loads, a call is made to the API that was built in the previous step. Once the data is retrieved from the API, it is organized into a format that can easily be applied to the various dynamic website elements.
 
